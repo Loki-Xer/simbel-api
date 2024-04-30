@@ -1,0 +1,14 @@
+{
+  "name": "ringtone-api",
+  "version": "1.0.0",
+  "description": "made with love by loki xer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.13",
+    "express": "^4.17.1"
+  }
+}
