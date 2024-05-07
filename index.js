@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get('/', async (req, res) => {
-    return res.send('<div style="background-color: black; color: black;">API is online...!!</div>');
+    return res.sendFile(__dirname + '/public/index.html');
 });
 
 app.get('/search', async (req, res) => {
