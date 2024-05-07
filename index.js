@@ -1,5 +1,5 @@
 const express = require('express');
-const ringtone = require('./function'); 
+const { getRandomEmoji } = require('./function/'); 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -7,17 +7,12 @@ app.get('/', async (req, res) => {
     return res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/search', async (req, res) => {
-    const query = req.query.q;
-    if (!query) {
-        return res.status(400).json({ error: 'Query parameter "q" is required' });
-    }
-    try {
-        const ringtones = await ringtone(query);
-        res.json(ringtones);
-    } catch (error) {
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
+app.get('/emoji', async (req, res) => {
+    var data = await getRandomEmoji();
+    res.json({
+      status: true,
+      result: data,
+    });
 });
 
 app.listen(PORT, () => {
