@@ -3,6 +3,9 @@ const ringtone = require('./function');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.get('/', async (req, res) => {
+    return res.json('api is online...!!');
+});
 
 app.get('/search', async (req, res) => {
     const query = req.query.q;
